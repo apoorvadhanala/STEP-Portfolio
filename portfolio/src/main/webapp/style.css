@@ -4,6 +4,22 @@
   width: 650px;
 }
 
+.w3-cinzel {
+  font-family: 'Cinzel', serif;
+  color: rgb(212, 53, 53);
+  
+}
+
+.w3-rajdhani {
+  font-family: 'Rajdhani', serif;
+  color: rgb(114, 25, 216);
+  
+}
+
+img{
+    border: 5px solid rgb(212, 53, 53);
+}
+
 #quote-container {
   margin-top: 20px;
 }
