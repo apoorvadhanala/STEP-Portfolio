@@ -6,19 +6,19 @@
 
 .w3-cinzel {
   font-family: 'Cinzel', serif;
-  color: rgb(212, 53, 53);
+  color: rgb(235, 22, 75);
   
 }
 
 .w3-lora {
   font-family: 'Lora', serif;
-  color: rgb(226, 158, 31);
+  color: whitesmoke;
   
 }
 
-.img-me{
-    border: 5px solid rgb(212, 53, 53);
-}
+.img-me{}
+    <!-- border: 5px solid rgb(212, 53, 53);-->
+
 
 #quote-container {
   margin-top: 20px;
@@ -46,6 +46,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  padding:0
 }
 
 * {
@@ -54,7 +55,7 @@ body, html {
 
 .bg-image {
   /* Full height */
-  height: 60%;
+  height: 70%;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -69,16 +70,17 @@ body, html {
 .img4 { background-image: url("images/eze7.jpg"); }
 .img5 { background-image: url("images/nice7.jpg"); }
 .img6 { background-image: url("images/eze3.jpg"); }
+.img7 { background-image: url("images/nice12.jpg"); }
 
 /* Position text in the middle of the page/image */
-.bg-text {
+.bg-text-photo {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   font-size: 20px;
   border: 10px solid #f1f1f1;
-  position: fixed; /* Stay fixed */
+  position: absolute; /* Stay fixed */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
