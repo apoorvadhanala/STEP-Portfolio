@@ -10,6 +10,12 @@
   
 }
 
+.w3-cinzel-body {
+  font-family: 'Cinzel', serif;
+  color: rgb(17, 162, 167);
+  
+}
+
 .w3-lora {
   font-family: 'Lora', serif;
   color: whitesmoke;
@@ -17,7 +23,7 @@
 }
 
 .img-me{}
-    <!-- border: 5px solid rgb(212, 53, 53);-->
+
 
 
 #quote-container {
@@ -55,7 +61,7 @@ body, html {
 
 .bg-image-photo {
   /* Full height */
-  height: 70%;
+  height: 60%;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -87,11 +93,11 @@ body, html {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
   color: white;
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: normal;
+  font-size: 35px;
   border: 10px solid #f1f1f1;
   position: absolute; /* Stay fixed */
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
