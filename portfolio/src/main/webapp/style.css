@@ -16,7 +16,7 @@
   
 }
 
-img{
+.img-me{
     border: 5px solid rgb(212, 53, 53);
 }
 
@@ -54,7 +54,7 @@ body, html {
 
 .bg-image {
   /* Full height */
-  height: 50%;
+  height: 60%;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -64,11 +64,11 @@ body, html {
 
 /* Images used */
 .img1 { background-image: url("images/eze1.jpg"); }
-.img2 { background-image: url("images/eze2.jpg"); }
-.img3 { background-image: url("images/eze3.jpg"); }
-.img4 { background-image: url("images/eze4.jpg"); }
-.img5 { background-image: url("images/eze5.jpg"); }
-.img6 { background-image: url("images/eze6.jpg"); }
+.img2 { background-image: url("images/mc4.jpg"); }
+.img3 { background-image: url("images/barca3.jpg"); }
+.img4 { background-image: url("images/eze7.jpg"); }
+.img5 { background-image: url("images/nice7.jpg"); }
+.img6 { background-image: url("images/eze3.jpg"); }
 
 /* Position text in the middle of the page/image */
 .bg-text {
