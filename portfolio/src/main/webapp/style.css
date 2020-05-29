@@ -6,7 +6,7 @@
 
 .w3-cinzel {
   font-family: 'Cinzel', serif;
-  color: rgb(235, 22, 75);
+  color: rgb(26, 186, 235);
   
 }
 
@@ -53,12 +53,22 @@ body, html {
   box-sizing: border-box;
 }
 
-.bg-image {
+.bg-image-photo {
   /* Full height */
   height: 70%;
 
   /* Center and scale the image nicely */
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-intro {
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: 100% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
