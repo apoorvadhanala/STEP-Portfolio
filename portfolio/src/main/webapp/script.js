@@ -29,7 +29,7 @@ function addRandomQuote() {
   quoteContainer.innerText = quote;
 }
 
-function getRandomQuoteUsingArrowFunctions() {
+function updateGreeting() {
   fetch('/data').then(response => response.text()).then((quote) => {
     document.getElementById('quote-container').innerHTML = quote;
   });
