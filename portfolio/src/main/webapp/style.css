@@ -4,30 +4,34 @@
   width: 650px;
 }
 
-.w3-cinzel {
+p {text-align: center;}
+div {text-align: center;} 
+img {text-align: center;} 
+h1 {text-align: center;}
+h2 {text-align: center;}
+h3 {text-align: center;}  
+
+.heading-font {
   font-family: 'Cinzel', serif;
   color: rgb(26, 186, 235);
-  
 }
 
-.w3-cinzel-body {
+.body-font {
   font-family: 'Cinzel', serif;
   color: rgb(17, 162, 167);
-  
 }
 
-.w3-lora {
+.links-font {
   font-family: 'Lora', serif;
   color: whitesmoke;
-  
 }
-
-.img-me{}
-
-
 
 #quote-container {
   margin-top: 20px;
+}
+
+.image-thumbnails div { 
+    text-align: left; 
 }
 
 .image-thumbnails {
@@ -45,8 +49,6 @@
 .image-thumbnails img:hover {
   border: thick solid LIGHTCORAL;
 }
-
-
 
 body, html {
   height: 100%;
@@ -78,7 +80,6 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 .bg-image-fav {
   /* Full height */
