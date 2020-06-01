@@ -4,8 +4,34 @@
   width: 650px;
 }
 
+p {text-align: center;}
+div {text-align: center;} 
+img {text-align: center;} 
+h1 {text-align: center;}
+h2 {text-align: center;}
+h3 {text-align: center;}  
+
+.heading-font {
+  font-family: 'Cinzel', serif;
+  color: rgb(26, 186, 235);
+}
+
+.body-font {
+  font-family: 'Cinzel', serif;
+  color: rgb(17, 162, 167);
+}
+
+.links-font {
+  font-family: 'Lora', serif;
+  color: whitesmoke;
+}
+
 #quote-container {
   margin-top: 20px;
+}
+
+.image-thumbnails div { 
+    text-align: left; 
 }
 
 .image-thumbnails {
@@ -23,3 +49,77 @@
 .image-thumbnails img:hover {
   border: thick solid LIGHTCORAL;
 }
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding:0
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image-photo {
+  /* Full height */
+  height: 60%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-intro {
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-fav {
+  /* Full height */
+  height: 60%;
+
+  /* Center and scale the image nicely */
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Images used */
+.img1 { background-image: url("images/eze1.jpg"); }
+.img2 { background-image: url("images/mc4.jpg"); }
+.img3 { background-image: url("images/barca3.jpg"); }
+.img4 { background-image: url("images/eze7.jpg"); }
+.img5 { background-image: url("images/nice7.jpg"); }
+.img6 { background-image: url("images/eze3.jpg"); }
+.img7 { background-image: url("images/nice12.jpg"); }
+
+/*favorites page pictures*/
+.img8 { background-image: url("images/inspo1.png"); }
+.img9 { background-image: url("images/inspo2.png"); }
+.img10 { background-image: url("images/inspo3.png"); }
+
+/* Position text in the middle of the page/image */
+.bg-text-photo {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: normal;
+  font-size: 35px;
+  border: 10px solid #f1f1f1;
+  position: absolute; /* Stay fixed */
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 600px;
+  padding: 20px;
+  text-align: center;
+}
+
