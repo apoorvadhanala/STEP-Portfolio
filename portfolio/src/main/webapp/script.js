@@ -30,9 +30,25 @@ function addRandomQuote() {
 }
 
 function updateGreeting() {
-fetch('/data')
-    .then(response => response.text())
-    .then((quote) => {
-        document.getElementById('quote-container').innerHTML = quote;
-     });
+  console.log('Fetching a comment.');
+
+  fetch('/data')
+    .then(response => response.json())
+    .then((quotes) => {
+    document.getElementById('quote-container').innerHTML = quotes;
+
+    const quotesListElement = document.getElementById('quote-container');
+    quotesListElement.innerHTML = '';
+
+    for(var i =0; i < quotes.length; i++){
+        quotesListElement.appendChild(createListElement(quotes[i]));
+    };
+  });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
