@@ -38,7 +38,7 @@ function updateGreeting() {
       document.getElementById('quote-container').innerHTML = quotes;
       const quotesListElement = document.getElementById('quote-container');
       quotesListElement.innerHTML = '';
-      for(var i =0; i < quotes.length; i++) {
+      for(var i = 0; i < quotes.length; i++) {
         quotesListElement.appendChild(createListElement(quotes[i]));
     };
   });

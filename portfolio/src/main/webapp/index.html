@@ -42,9 +42,17 @@
       <h3 class="links-font"><a href="resume.html">MY RESUME</a></h3>
       <h3 class="links-font"><a href="photography.html">MY PHOTOGRAPHY</a></h3>
       <h3 class="links-font"><a href="favorites.html">FAVORITE SONGS, TV SHOWS, AND MORE!</a></h3>
-      <h3>Click here to see a random quote:</h3>
-      <button onclick="updateGreeting()">Hi!</button>
-      <div id="quote-container"></div>
+    </div>
+    <div class="comments-box">
+      <h2 style=font-size:40px class="heading-font">COMMENTS</h2>
+      <button onclick="updateGreeting()">Click to see all the comments!</button>
+      <div class="links-font" id="quote-container"></div>
+      <form action="/data" method="POST">
+        <h3 class="links-font">Please leave me a comment!</h3>
+        <textarea name="text-input"></textarea>
+        <br/><br/>
+        <input type="submit" />
+      </form>
     </div>
   </body>
 </html>
