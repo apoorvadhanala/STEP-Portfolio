@@ -124,9 +124,9 @@ body, html {
 }
 
 .comments-box{
-margin:0 auto; 
-width:600px;
-padding:20px;
-background:rgba(0,0,0, 0.4);;
-border:5px solid rgb(250, 247, 247);
+margin: 0 auto; 
+width: 600px;
+padding: 20px;
+background: rgba(0, 0, 0, 0.4);;
+border: 5px solid rgb(250, 247, 247);
 }
