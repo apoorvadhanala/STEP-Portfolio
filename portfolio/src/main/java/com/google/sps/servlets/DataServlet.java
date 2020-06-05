@@ -20,7 +20,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
-import com.google.sps.data.Task;
+import com.google.sps.data.Comment;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,30 +35,30 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
     
-private static final ArrayList<String> messagesList = new ArrayList<String>();
-private static final String index = "/index.html";
-private static final String comment = "Comment";
-private static final String content = "content";
-private static final String textInput = "text-input";
+  private static final ArrayList<String> messagesList = new ArrayList<String>();
+  private static final String index = "/index.html";
+  private static final String comment = "Comment";
+  private static final String content = "content";
+  private static final String textInput = "text-input";
 
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Query query = new Query("Comment");
+    Query query = new Query(comment);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
-    List<Task> tasks = new ArrayList<>();
+    List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
       String content = (String) entity.getProperty("content");
 
-      Task task = new Task(id, content);
-      tasks.add(task);
+      Comment comment = new Comment(id, content);
+      comments.add(comment);
     }
 
     Gson gson = new Gson();
-    String json = gson.toJson(tasks);
+    String json = gson.toJson(comments);
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
@@ -83,7 +83,7 @@ private static final String textInput = "text-input";
    * @return the request parameter, or the default value if the parameter
    *         was not specified by the client
    */
-  private String getParameter(HttpServletRequest request, String name) {
+  private static String getParameter(HttpServletRequest request, String name) {
     String defaultValue = "";
     String value = request.getParameter(name);
     return value == null ? defaultValue : value;

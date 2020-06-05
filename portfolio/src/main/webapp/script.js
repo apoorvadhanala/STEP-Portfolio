@@ -29,7 +29,7 @@ function addRandomQuote() {
   quoteContainer.innerText = quote;
 }
 
-function updateComment() {
+function fetchComment() {
   console.log('Fetching a comment.');
 
   fetch('/data')
@@ -47,6 +47,6 @@ function updateComment() {
 /** Creates an <li> element containing text. */
 function createListElement(task) {
   const liElement = document.createElement('li');
-  liElement.innerText = task.title;
+  liElement.innerText = task.commentString;
   return liElement;
 }
