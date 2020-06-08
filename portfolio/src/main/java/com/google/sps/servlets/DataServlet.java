@@ -46,7 +46,13 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String maxString = request.getParameter("maxComment");
+    if(maxString == ""){
+        maxString = "2";
+    }
     int max = Integer.parseInt(maxString);
+    if(max > 1000000){
+        max = 1000000;
+    }
     Query query = new Query(comment);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);

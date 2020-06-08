@@ -29,11 +29,11 @@ function addRandomQuote() {
   quoteContainer.innerText = quote;
 }
 
-function fetchComment() {
-  console.log('Fetching a comment.');
+function getComment() {
+    <script>console.log("hello world!");</script>
+  console.log('Getting all commments.');
 
     fetch('/data?maxComment=' + document.getElementById('quantity').value)
-  //fetch('/data?maxComment=3')
     .then(response => response.json())
     .then((quotes) => {
       document.getElementById('quote-container').innerHTML = quotes;
@@ -49,7 +49,7 @@ function deleteComment() {
   console.log('Deleting a comment.');
 
   const responsePromise = fetch(new Request('/delete-data', {method: 'POST'}));
-  responsePromise.then(fetchComment());
+  responsePromise.then(getComment());
 
 }
 
