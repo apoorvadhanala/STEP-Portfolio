@@ -29,10 +29,11 @@ function addRandomQuote() {
   quoteContainer.innerText = quote;
 }
 
-function fetchComment() {
-  console.log('Fetching a comment.');
+function getComment() {
+    <script>console.log("hello world!");</script>
+  console.log('Getting all commments.');
 
-  fetch('/data')
+    fetch('/data?maxComment=' + document.getElementById('quantity').value)
     .then(response => response.json())
     .then((quotes) => {
       document.getElementById('quote-container').innerHTML = quotes;
@@ -42,6 +43,14 @@ function fetchComment() {
         quotesListElement.appendChild(createListElement(quotes[i]));
     };
   });
+}
+
+function deleteComment() {
+  console.log('Deleting a comment.');
+
+  const responsePromise = fetch(new Request('/delete-data', {method: 'POST'}));
+  responsePromise.then(getComment());
+
 }
 
 /** Creates an <li> element containing text. */

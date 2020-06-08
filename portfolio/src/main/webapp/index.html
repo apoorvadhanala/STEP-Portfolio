@@ -45,14 +45,19 @@
     </div>
     <div class="comments-box">
       <h2 style=font-size:40px class="heading-font">COMMENTS</h2>
-      <button onclick="fetchComment()">Click to see all the comments!</button>
+      <button onclick="getComment()">Click to see all the comments!</button>
       <div class="links-font" id="quote-container"></div>
       <form action="/data" method="POST">
         <h3 class="links-font">Please leave me a comment!</h3>
         <textarea name="text-input"></textarea>
         <br/><br/>
+        <label class="links-font" for="quantity">Please enter the number of comments to be displayed. (between 1-5)</label>
+        <input type="number" id="quantity" name="quantity" value="2" min="1" max="5">
+        <br/><br/>
         <input type="submit" />
       </form>
+      <button onclick="getComment()">Refresh comments</button>
+      <button onclick="deleteComment()">Delete comments</button>
     </div>
   </body>
 </html>
