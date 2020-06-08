@@ -31,8 +31,7 @@ function addRandomQuote() {
 
 function fetchComment() {
   console.log('Fetching a comment.');
-  var x = document.getElementById('quantity');
-  console.log("this is value" + x.value);
+
     fetch('/data?maxComment=' + document.getElementById('quantity').value)
   //fetch('/data?maxComment=3')
     .then(response => response.json())
@@ -44,6 +43,14 @@ function fetchComment() {
         quotesListElement.appendChild(createListElement(quotes[i]));
     };
   });
+}
+
+function deleteComment() {
+  console.log('Deleting a comment.');
+
+  const responsePromise = fetch(new Request('/delete-data', {method: 'POST'}));
+  responsePromise.then(fetchComment());
+
 }
 
 /** Creates an <li> element containing text. */
