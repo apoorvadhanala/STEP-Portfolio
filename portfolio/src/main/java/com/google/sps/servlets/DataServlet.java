@@ -40,21 +40,29 @@ public class DataServlet extends HttpServlet {
   private static final String comment = "Comment";
   private static final String content = "content";
   private static final String textInput = "text-input";
+  private static final String quantity = "quantity";
 
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String maxString = request.getParameter("maxComment");
+    int max = Integer.parseInt(maxString);
     Query query = new Query(comment);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
     List<Comment> comments = new ArrayList<>();
+    int counter = 0;
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
       String content = (String) entity.getProperty("content");
 
       Comment comment = new Comment(id, content);
       comments.add(comment);
+      counter++;
+      if(counter == max){
+        break;
+      }
     }
 
     Gson gson = new Gson();
@@ -68,6 +76,7 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
     String text = getParameter(request, textInput);
+    String numberOfComments = getParameter(request, quantity);
 
     Entity commentEntity = new Entity(comment);
     commentEntity.setProperty(content, text);

@@ -31,8 +31,10 @@ function addRandomQuote() {
 
 function fetchComment() {
   console.log('Fetching a comment.');
-
-  fetch('/data')
+  var x = document.getElementById('quantity');
+  console.log("this is value" + x.value);
+    fetch('/data?maxComment=' + document.getElementById('quantity').value)
+  //fetch('/data?maxComment=3')
     .then(response => response.json())
     .then((quotes) => {
       document.getElementById('quote-container').innerHTML = quotes;
