@@ -30,7 +30,6 @@ function addRandomQuote() {
 }
 
 function getComment() {
-    <script>console.log("hello world!");</script>
   console.log('Getting all commments.');
 
     fetch('/data?maxComment=' + document.getElementById('quantity').value)
@@ -58,4 +57,11 @@ function createListElement(task) {
   const liElement = document.createElement('li');
   liElement.innerText = task.commentString;
   return liElement;
+}
+
+/** Creates a map and adds it to the page. */
+function createMap() {
+  const map = new google.maps.Map(
+      document.getElementById('map'),
+      {center: {lat: -34.397, lng: 150.644}, zoom: 8});
 }
