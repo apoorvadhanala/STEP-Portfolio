@@ -61,10 +61,19 @@ function createListElement(task) {
 
 /** Creates a map and adds it to the page. */
 function createMap() {
-  var ponceContent = "Ponce City Market breathes new life into the historic Sears, Roebuck & Co. building in Atlanta. The classic structure, which is the area’s largest adaptive reuse project, has been reinvented as a vibrant community hub housing the Central Food Hall, various shops, flats and offices, all while pointing back to the roots of its inception. The market infuses vigor and excitement into this historically-signiﬁcant structure, located in one of Atlanta’s most cherished neighborhoods.";
-  var krogContent = "Krog Street Market is a 9-acre mixed-use development in Atlanta, located along the BeltLine trail at Edgewood Avenue in Inman Park which opened in Summer 2014. The complex is centered on a 12,000-square-foot, west coast-style market and restaurants, and also includes up to 300 apartments.";
-  var atlanticContent = "Atlantic Station is an upscale commercial and residential area. At its heart is the open-air Atlantic Station mall, with popular fashion and home decor stores. Cultural institutions include the Millennium Gate Museum, with temporary art exhibitions, and the Robert C. Williams Paper Museum. Near the Georgia Institute of Technology campus, old-school diners serve breakfast and burgers.";
-  var aquariumContent = "Georgia Aquarium is a public aquarium in Atlanta, Georgia, United States. Georgia Aquarium is home to hundreds of species and thousands of animals across its seven major galleries, all of which reside in more than 10 million US gallons of fresh and salt water.";
+  var ponceContent = "Ponce City Market breathes new life into the historic Sears, Roebuck" + 
+  "& Co. building in Atlanta. The classic structure, which is the area’s largest adaptive reuse project, " +
+  "has been reinvented as a vibrant community hub housing the Central Food Hall, various shops, flats and offices, " + 
+  "all while pointing back to the roots of its inception. The market infuses vigor and excitement into this historically-signiﬁcant structure, " + 
+  "located in one of Atlanta’s most cherished neighborhoods.";
+  var krogContent = "Krog Street Market is a 9-acre mixed-use development in Atlanta, located along the BeltLine trail " + 
+  "at Edgewood Avenue in Inman Park which opened in Summer 2014. The complex is centered on a 12,000-square-foot, west " + 
+  "coast-style market and restaurants, and also includes up to 300 apartments.";
+  var atlanticContent = "Atlantic Station is an upscale commercial and residential area. At its heart is the open-air Atlantic " + 
+  "Station mall, with popular fashion and home decor stores. Cultural institutions include the Millennium Gate Museum, with temporary " + 
+  "art exhibitions, and the Robert C. Williams Paper Museum. Near the Georgia Institute of Technology campus, old-school diners serve breakfast and burgers.";
+  var aquariumContent = "Georgia Aquarium is a public aquarium in Atlanta, Georgia, United States. Georgia Aquarium is home to hundreds of species " + 
+  "and thousands of animals across its seven major galleries, all of which reside in more than 10 million US gallons of fresh and salt water.";
 
   const map = new google.maps.Map(
     document.getElementById('map'),
