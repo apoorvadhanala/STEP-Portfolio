@@ -162,12 +162,6 @@ function createMap() {
           ]
           });
 
-  createMarkers();
-  infoWindows();
-}
-
-/* Creates markers to display on map of Atlanta */
-function createMarkers(){
       const ponceCity = new google.maps.Marker({
     position: {lat: 33.7726, lng: -84.3655},
     map: map,
@@ -188,11 +182,7 @@ function createMarkers(){
     map: map,
     title: 'Georgia Aquarium'
   });
-}
-
-/* Creates information windows for markers along with event handlers*/
-function infoWindows(){
-      const ponceInfoWindow =
+  const ponceInfoWindow =
     new google.maps.InfoWindow({content: ponceContent});
     ponceCity.addListener('click', () => {
       ponceInfoWindow.open(map, ponceCity);
@@ -216,5 +206,4 @@ function infoWindows(){
     aquarium.addListener('click', () => {
       aquariumInfoWindow.open(map, aquarium);
     });
-
 }
