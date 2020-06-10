@@ -43,7 +43,6 @@ public class DataServlet extends HttpServlet {
   private static final String quantity = "quantity";
 
 
-  @todo make datastore limit number of comments it fetches instead of in for loop
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String maxString = request.getParameter("maxComment");

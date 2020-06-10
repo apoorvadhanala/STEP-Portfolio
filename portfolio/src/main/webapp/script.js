@@ -30,10 +30,9 @@ function addRandomQuote() {
 }
 
 function getComment() {
-    <script>console.log("hello world!");</script>
   console.log('Getting all commments.');
 
-    fetch('/data?maxComment=' + document.getElementById('quantity').value)
+  fetch('/data?maxComment=' + document.getElementById('quantity').value)
     .then(response => response.json())
     .then((quotes) => {
       document.getElementById('quote-container').innerHTML = quotes;
@@ -58,4 +57,115 @@ function createListElement(task) {
   const liElement = document.createElement('li');
   liElement.innerText = task.commentString;
   return liElement;
+}
+
+/** Creates a map and adds it to the page. */
+function createMap() {
+  const map = new google.maps.Map(
+    document.getElementById('map'),
+    {center: {lat: 33.7610, lng: -84.3880}, 
+    zoom: 12.5, mapTypeId: "roadmap", 
+    //tilt: 45,
+    styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+          });
+  const ponceCity = new google.maps.Marker({
+    position: {lat: 33.7726, lng: -84.3655},
+    map: map,
+    title: 'Ponce City Market'
+  });
+  const krogStreet = new google.maps.Marker({
+    position: {lat: 33.7569, lng: -84.3642},
+    map: map,
+    title: 'Krog Street Market'
+  });
+  const atlanticStation = new google.maps.Marker({
+    position: {lat: 33.7913, lng: -84.3987},
+    map: map,
+    title: 'Atlantic Station'
+  });
+  const aquarium = new google.maps.Marker({
+    position: {lat: 33.7634 , lng: -84.3951},
+    map: map,
+    title: 'Georgia Aquarium'
+  });
+
 }
