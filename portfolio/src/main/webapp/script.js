@@ -219,19 +219,24 @@ function drawChart() {
   data.addColumn('string', 'Genre');
   data.addColumn('number', 'Time');
         data.addRows([
-          ['Country', 40],
-          ['Bollywood', 21],
-          ['Pop', 39]
+          ['Country',25],
+          ['Bollywood',10],
+          ['Pop',30],
+          ['Rap',8],
+          ['Classical',27]
         ]);
 
   const options = {
     'width':700,
     'height':600,
-    colors: ['#E082AA', '#82E0D7', '#E9F7F5']
+    pieHole: 0.4,
+    colors: ['#E082AA','#E0BEF7', '#F7F2BE','#82E0D7', '#CDECE8']
   };
 
   const chart = new google.visualization.PieChart(
-      document.getElementById('chart-container'));
+    document.getElementById('chart-container'));
   chart.draw(data, options);
-}
+
+  }
+
 
