@@ -209,3 +209,29 @@ function addLandmarkMarkers(landmark, map){
             infoWindow.open(map, marker);
         });
 }
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'Genre');
+  data.addColumn('number', 'Time');
+        data.addRows([
+          ['Country', 40],
+          ['Bollywood', 21],
+          ['Pop', 39]
+        ]);
+
+  const options = {
+    'width':700,
+    'height':600,
+    colors: ['#E082AA', '#82E0D7', '#E9F7F5']
+  };
+
+  const chart = new google.visualization.PieChart(
+      document.getElementById('chart-container'));
+  chart.draw(data, options);
+}
+
