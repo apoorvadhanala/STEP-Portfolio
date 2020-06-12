@@ -147,6 +147,5 @@ body, html {
 
 #chart-container{
     display: inline-block;
-    margine: 0 auto;
-
+    margin: 0 auto;
 }

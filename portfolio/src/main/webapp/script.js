@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+var map;
+
 /**
  * Adds a random quote to the page.
  */
@@ -58,8 +60,6 @@ function createListElement(task) {
   liElement.innerText = task.commentString;
   return liElement;
 }
-
-var map;
 
 // Marker information for Atlanta locations
 const landmarks = [
@@ -236,7 +236,6 @@ function drawChart() {
   const chart = new google.visualization.PieChart(
     document.getElementById('chart-container'));
   chart.draw(data, options);
-
-  }
+}
 
 
