@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+var map;
+
 /**
  * Adds a random quote to the page.
  */
@@ -58,8 +60,6 @@ function createListElement(task) {
   liElement.innerText = task.commentString;
   return liElement;
 }
-
-var map;
 
 // Marker information for Atlanta locations
 const landmarks = [
@@ -209,3 +209,33 @@ function addLandmarkMarkers(landmark, map){
             infoWindow.open(map, marker);
         });
 }
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'Genre');
+  data.addColumn('number', 'Time');
+        data.addRows([
+          ['Country',25],
+          ['Bollywood',10],
+          ['Pop',30],
+          ['Rap',8],
+          ['Classical',27]
+        ]);
+
+  const options = {
+    'width':700,
+    'height':600,
+    pieHole: 0.4,
+    colors: ['#E082AA','#E0BEF7', '#F7F2BE','#82E0D7', '#CDECE8']
+  };
+
+  const chart = new google.visualization.PieChart(
+    document.getElementById('chart-container'));
+  chart.draw(data, options);
+}
+
+

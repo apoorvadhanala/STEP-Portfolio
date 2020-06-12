@@ -144,3 +144,8 @@ body, html {
   margin-right:auto;
   border: thick solid LIGHTCORAL;
 }
+
+#chart-container{
+    display: inline-block;
+    margin: 0 auto;
+}
