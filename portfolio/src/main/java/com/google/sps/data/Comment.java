@@ -19,9 +19,11 @@ public final class Comment {
 
   private final long id;
   private final String commentString;
+  private final int score;
 
-  public Comment(long id, String commentString) {
+  public Comment(long id, String commentString, int score) {
     this.id = id;
     this.commentString = commentString;
+    this.score = score;
   }
 }

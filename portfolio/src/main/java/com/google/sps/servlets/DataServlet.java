@@ -44,6 +44,7 @@ public class DataServlet extends HttpServlet {
   private static final String content = "content";
   private static final String textInput = "text-input";
   private static final String quantity = "quantity";
+  private static final String sentimentScore = "sentimentScore";
 
 
   @Override
@@ -68,8 +69,10 @@ public class DataServlet extends HttpServlet {
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
       String content = (String) entity.getProperty("content");
+      String score = (String) entity.getProperty("sentimentScore");
+      int scoreInt = Integer.parseInt(score);
 
-      Comment comment = new Comment(id, content);
+      Comment comment = new Comment(id, content, scoreInt);
       comments.add(comment);
       counter++;
       if(counter == max){
@@ -90,12 +93,6 @@ public class DataServlet extends HttpServlet {
     String text = getParameter(request, textInput);
     String numberOfComments = getParameter(request, quantity);
 
-    Entity commentEntity = new Entity(comment);
-    commentEntity.setProperty(content, text);
-
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(commentEntity);
-
     Document doc =
         Document.newBuilder().setContent(text).setType(Document.Type.PLAIN_TEXT).build();
     LanguageServiceClient languageService = LanguageServiceClient.create();
@@ -104,6 +101,13 @@ public class DataServlet extends HttpServlet {
     languageService.close();
 
     System.out.println("This is the sentiment score" + score);
+
+    Entity commentEntity = new Entity(comment);
+    commentEntity.setProperty(content, text);
+    commentEntity.setProperty(sentimentScore, score);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
 
 
     // Redirect back to the HTML page.
