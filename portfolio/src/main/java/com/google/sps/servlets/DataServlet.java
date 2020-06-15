@@ -14,6 +14,9 @@
 
 package com.google.sps.servlets;
 
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -41,6 +44,7 @@ public class DataServlet extends HttpServlet {
   private static final String content = "content";
   private static final String textInput = "text-input";
   private static final String quantity = "quantity";
+  private static final String sentimentScore = "sentimentScore";
 
 
   @Override
@@ -65,8 +69,10 @@ public class DataServlet extends HttpServlet {
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
       String content = (String) entity.getProperty("content");
+      String score = (String) entity.getProperty("sentimentScore");
+      int scoreInt = Integer.parseInt(score);
 
-      Comment comment = new Comment(id, content);
+      Comment comment = new Comment(id, content, scoreInt);
       comments.add(comment);
       counter++;
       if(counter == max){
@@ -87,11 +93,22 @@ public class DataServlet extends HttpServlet {
     String text = getParameter(request, textInput);
     String numberOfComments = getParameter(request, quantity);
 
+    Document doc =
+        Document.newBuilder().setContent(text).setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    float score = sentiment.getScore();
+    languageService.close();
+
+    System.out.println("This is the sentiment score" + score);
+
     Entity commentEntity = new Entity(comment);
     commentEntity.setProperty(content, text);
+    commentEntity.setProperty(sentimentScore, score);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
+
 
     // Redirect back to the HTML page.
     response.sendRedirect(index);
